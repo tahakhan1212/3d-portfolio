@@ -11,10 +11,10 @@
   var CINE_FRAME_COUNT = 169;
 
   function heroFramePath(n) {
-    return "public/frames/frame_" + String(n).padStart(4, "0") + ".jpg";
+    return "publics/frames/frame_" + String(n).padStart(4, "0") + ".jpg";
   }
   function cineFramePath(n) {
-    return "public/frames2/frame_" + String(n).padStart(4, "0") + ".jpg";
+    return "publics/frames2/frame_" + String(n).padStart(4, "0") + ".jpg";
   }
 
   // ---- Lenis Smooth Scroll ----
