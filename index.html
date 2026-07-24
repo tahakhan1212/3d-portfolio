@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full antialiased">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taha Sultan — Full Stack Developer</title>
+  <meta name="description" content="Full Stack Web Developer with 6+ years of experience building modern websites, business systems and scalable web applications." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="relative min-h-full grain">
+
+  <!-- Navbar -->
+  <header id="navbar" class="fixed inset-x-0 top-0 z-40 border-b border-transparent transition-[background-color,backdrop-filter,border-color] duration-300">
+    <div class="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 md:px-8 md:py-5">
+      <a href="/" class="flex items-center gap-2.5 font-mono text-[11px] font-semibold uppercase tracking-[0.32em] text-foreground">
+        <span aria-hidden class="inline-block h-2 w-2 rounded-full bg-accent shadow-[0_0_12px_rgba(212,162,47,0.9)]"></span>
+        Taha / Sultan
+      </a>
+      <nav class="hidden items-center gap-8 md:flex">
+        <!-- <a href="#frame2" class="nav-link font-mono text-[11px] uppercase tracking-[0.24em] text-zinc-400 transition-colors hover:text-foreground">Profile</a> -->
+        <a href="#" class="nav-link font-mono text-[11px] uppercase tracking-[0.24em] text-zinc-400 transition-colors hover:text-foreground">Front End </a>
+        &
+        <a href="#" class="nav-link font-mono text-[11px] uppercase tracking-[0.24em] text-zinc-400 transition-colors hover:text-foreground">Back End</a>
+      </nav>
+      <a href="#" class="group inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.05] px-4 py-2 font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-foreground backdrop-blur-md transition-all duration-200 hover:bg-white/[0.1] hover:shadow-[0_0_20px_rgba(212,162,47,0.15)] active:translate-y-[1px]">
+        Developer
+        <svg class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" width="14" height="14" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="25" stroke-linecap="round" stroke-linejoin="round"><line x1="72" y1="184" x2="184" y2="72"></line><polyline points="100,72 184,72 184,156"></polyline></svg>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- =============================================
+         FRAME 1 — HERO INTRODUCTION
+         ============================================= -->
+    <section id="frame1" class="scroll-animation relative">
+      <div class="sticky top-0 min-h-[100dvh] w-full overflow-hidden bg-background" style="height:100dvh;will-change:transform;transform:translateZ(0)">
+        <canvas id="hero-canvas" class="absolute inset-0 h-full w-full" style="will-change:contents;transform:translateZ(0)"></canvas>
+
+        <!-- Vignette overlay -->
+        <div class="pointer-events-none absolute inset-0" style="background:radial-gradient(120% 80% at 50% 10%, transparent 30%, rgba(10,10,11,0.45) 70%, rgba(10,10,11,0.85) 100%)"></div>
+
+        <!-- HUD Corners -->
+        <div class="pointer-events-none absolute left-6 top-24 text-accent md:left-10 md:top-28"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M 2 26 L 2 2 L 26 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg></div>
+        <div class="pointer-events-none absolute right-6 top-24 text-accent md:right-10 md:top-28"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M 6 2 L 26 2 L 26 26" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg></div>
+        <div class="pointer-events-none absolute bottom-14 left-6 text-accent md:bottom-16 md:left-10"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M 2 6 L 2 26 L 26 26" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg></div>
+        <div class="pointer-events-none absolute bottom-14 right-6 text-accent md:bottom-16 md:right-10"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M 6 26 L 26 26 L 26 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg></div>
+
+        <!-- Telemetry top-left -->
+        <div class="pointer-events-none absolute left-6 top-20 z-10 flex items-center gap-2 md:left-10 md:top-24">
+          <div class="h-px w-8 bg-accent/60"></div>
+          <span class="font-mono text-[10px] uppercase tracking-[0.32em] text-zinc-400">J.A.R.V.I.S. // Developer Profile</span>
+        </div>
+
+        <!-- Arc Reactor top-right -->
+        <div class="pointer-events-none absolute right-6 top-20 z-10 flex items-center gap-3 md:right-10 md:top-24">
+          <span class="font-mono text-[10px] uppercase tracking-[0.32em] text-zinc-400">System Status</span>
+          <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-accent">Online</span>
+          <span aria-hidden class="inline-block h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(212,162,47,0.85)] animate-pulse"></span>
+        </div>
+
+        <!-- ===== SCENE A: Hero Text (bottom-left) ===== -->
+        <div id="hero-text" class="absolute inset-x-0 bottom-0 z-10 flex flex-col items-start gap-5 px-6 pb-24 md:px-12 md:pb-28" style="transition:opacity 80ms linear">
+          <span class="eyebrow-badge inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-3 py-1.5 font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-accent backdrop-blur-md" style="box-shadow:inset 0 1px 0 rgba(255,255,255,0.06), 0 0 24px -8px rgba(212,162,47,0.25)">
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(212,162,47,0.85)]"></span>
+            Full Stack Developer // Karachi, Pakistan
+          </span>
+          <h1 class="max-w-[16ch] font-sans text-5xl font-semibold leading-[0.95] tracking-tighter text-foreground md:text-7xl lg:text-8xl">
+            I Build<br /><span class="text-accent">Digital</span><br />Experiences.
+          </h1>
+          <p class="max-w-[46ch] font-sans text-sm leading-relaxed text-zinc-400 md:text-base">
+            Full Stack Developer with 2+ years of experience building modern websites, business systems and scalable web applications using HTML, CSS, JavaScript, PHP, Laravel, MySQL and modern frontend technologies.
+          </p>
+          <div class="flex items-center gap-3 mt-2">
+            <a href="#frame2" class="group inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-5 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-accent backdrop-blur-md transition-all duration-300 hover:bg-accent/20 hover:shadow-[0_0_30px_rgba(212,162,47,0.2)] active:translate-y-[1px]">
+              View Projects
+              <svg class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" width="14" height="14" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="25" stroke-linecap="round" stroke-linejoin="round"><line x1="72" y1="184" x2="184" y2="72"></line><polyline points="100,72 184,72 184,156"></polyline></svg>
+            </a>
+            <a href="#" class="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.05] px-5 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-foreground backdrop-blur-md transition-all duration-200 hover:bg-white/[0.1] hover:shadow-[0_0_20px_rgba(255,255,255,0.05)] active:translate-y-[1px]">
+              Download Resume
+            </a>
+            <a href="#" class="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.05] px-5 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-foreground backdrop-blur-md transition-all duration-200 hover:bg-white/[0.1] active:translate-y-[1px]">
+              Contact Me
+            </a>
+          </div>
+        </div>
+
+        <!-- ===== SCENE B: Big Center Headline (appears on scroll) ===== -->
+        <div id="hero-big-center" class="pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center" style="opacity:0;transition:opacity 240ms ease-out">
+          <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-accent mb-4">
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(212,162,47,0.85)] mr-2"></span>
+            Developer Protocol — Active
+          </span>
+          <h2 class="font-sans text-5xl md:text-7xl lg:text-8xl font-semibold leading-[0.92] tracking-tighter text-foreground text-center max-w-[20ch]">
+            I Build<br /><span class="text-accent">Future Ready</span><br />Web Experiences.
+          </h2>
+          <p class="mt-6 max-w-[42ch] text-center font-mono text-[11px] uppercase tracking-[0.22em] text-zinc-400">
+            From HTML to Laravel, from APIs to Interactive UI.
+          </p>
+        </div>
+
+        <!-- ===== SCENE C: Tech Modules (left side, scroll-triggered) ===== -->
+        <div id="hero-tech-modules" class="pointer-events-none absolute left-6 top-1/2 -translate-y-1/2 z-10 flex flex-col gap-3 md:left-12 md:top-[40%] md:-translate-y-0" style="opacity:0;transition:opacity 300ms ease-out">
+          <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-accent mb-1">
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(212,162,47,0.85)] mr-2"></span>
+            Systems Architecture
+          </span>
+          <div class="tech-module" data-delay="0">
+            <div class="tech-module-icon">01</div>
+            <div class="tech-module-info">
+              <span class="tech-module-label">Frontend Systems</span>
+              <span class="tech-module-detail">HTML5 / CSS3 / Bootstrap / JS / jQuery / React / Tailwind</span>
+            </div>
+            <div class="tech-module-glow"></div>
+          </div>
+          <div class="tech-module" data-delay="80">
+            <div class="tech-module-icon">02</div>
+            <div class="tech-module-info">
+              <span class="tech-module-label">Backend Systems</span>
+              <span class="tech-module-detail">PHP / Laravel / MySQL / REST APIs</span>
+            </div>
+            <div class="tech-module-glow"></div>
+          </div>
+          <div class="tech-module" data-delay="160">
+            <div class="tech-module-icon">03</div>
+            <div class="tech-module-info">
+              <span class="tech-module-label">Programming Systems</span>
+              <span class="tech-module-detail">C# / .NET / Angular</span>
+            </div>
+            <div class="tech-module-glow"></div>
+          </div>
+          <div class="tech-module" data-delay="240">
+            <div class="tech-module-icon">04</div>
+            <div class="tech-module-info">
+              <span class="tech-module-label">Framework Systems</span>
+              <span class="tech-module-detail">React / Angular / Tailwind CSS</span>
+            </div>
+            <div class="tech-module-glow"></div>
+          </div>
+          <div class="tech-module" data-delay="320">
+            <div class="tech-module-icon">05</div>
+            <div class="tech-module-info">
+              <span class="tech-module-label">Additional Systems</span>
+              <span class="tech-module-detail">Git / UI/UX / Performance / AI-Assisted Dev</span>
+            </div>
+            <div class="tech-module-glow"></div>
+          </div>
+        </div>
+
+        <!-- ===== SCENE D: Mission Logs (scroll-triggered) ===== -->
+        <div id="hero-missions" class="pointer-events-none absolute left-6 top-[15%] z-10 flex flex-col gap-4 md:left-12 md:top-[18%]" style="opacity:0;transition:opacity 300ms ease-out">
+          <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-accent mb-1">
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(212,162,47,0.85)] mr-2"></span>
+            Mission Logs
+          </span>
+          <div class="mission-log" data-delay="0">
+            <div class="mission-log-num">01</div>
+            <div class="mission-log-content">
+              <span class="mission-log-title">Frontend Development</span>
+              <span class="mission-log-role">Responsive Websites</span>
+              <span class="mission-log-desc">HTML / CSS / Bootstrap / JavaScript / jQuery</span>
+            </div>
+            <div class="mission-log-glow"></div>
+          </div>
+          <div class="mission-log" data-delay="100">
+            <div class="mission-log-num">02</div>
+            <div class="mission-log-content">
+              <span class="mission-log-title">Backend Development</span>
+              <span class="mission-log-role">Dynamic Web Applications</span>
+              <span class="mission-log-desc">PHP / Laravel / MySQL</span>
+            </div>
+            <div class="mission-log-glow"></div>
+          </div>
+          <div class="mission-log" data-delay="200">
+            <div class="mission-log-num">03</div>
+            <div class="mission-log-content">
+              <span class="mission-log-title">Modern Development</span>
+              <span class="mission-log-role">Frameworks &amp; APIs</span>
+              <span class="mission-log-desc">React / Angular / Tailwind CSS / REST APIs / C# / .NET</span>
+            </div>
+            <div class="mission-log-glow"></div>
+          </div>
+          <div class="mission-log" data-delay="300">
+            <div class="mission-log-num">04</div>
+            <div class="mission-log-content">
+              <span class="mission-log-title">Current Goal</span>
+              <span class="mission-log-role">High-Quality Applications</span>
+              <span class="mission-log-desc">Building modern UIs, scalable backends &amp; improving skills.</span>
+            </div>
+            <div class="mission-log-glow"></div>
+          </div>
+        </div>
+
+        <!-- ===== Developer Stats (scroll-triggered) ===== -->
+        <div id="hero-stats" class="pointer-events-none absolute bottom-28 left-6 z-10 flex flex-col gap-3 md:bottom-28 md:left-12" style="opacity:0;transition:opacity 300ms ease-out">
+          <div class="stat-row">
+            <span class="stat-label">Experience</span>
+            <span class="stat-value">2+ Years</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Core Technologies</span>
+            <span class="stat-value">15+</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Learning Mode</span>
+            <span class="stat-value text-accent">Always Active</span>
+          </div>
+        </div>
+
+        <!-- ===== Right Side: System Status Cards (scroll-triggered) ===== -->
+        <div id="sys-cards" class="pointer-events-none absolute right-6 top-[18%] z-20 flex flex-col gap-3 md:right-12 md:top-[16%]" style="opacity:0;transition:opacity 300ms ease-out">
+          <div class="sys-card" data-delay="0">
+            <div class="sys-card-header">
+              <span class="sys-card-dot"></span>
+              <span class="sys-card-label">System Status</span>
+            </div>
+            <span class="sys-card-value">ONLINE</span>
+            <div class="sys-card-line"></div>
+          </div>
+          <div class="sys-card" data-delay="60">
+            <div class="sys-card-header">
+              <span class="sys-card-dot"></span>
+              <span class="sys-card-label">Developer</span>
+            </div>
+            <span class="sys-card-value">TAHA SULTAN</span>
+            <div class="sys-card-line"></div>
+          </div>
+          <div class="sys-card" data-delay="120">
+            <div class="sys-card-header">
+              <span class="sys-card-dot"></span>
+              <span class="sys-card-label">Role</span>
+            </div>
+            <span class="sys-card-value">FULL STACK DEVELOPER</span>
+            <div class="sys-card-line"></div>
+          </div>
+          <div class="sys-card" data-delay="180">
+            <div class="sys-card-header">
+              <span class="sys-card-dot"></span>
+              <span class="sys-card-label">Experience</span>
+            </div>
+            <span class="sys-card-value">2+ YEARS</span>
+            <div class="sys-card-line"></div>
+          </div>
+          <div class="sys-card" data-delay="240">
+            <div class="sys-card-header">
+              <span class="sys-card-dot available"></span>
+              <span class="sys-card-label">Status</span>
+            </div>
+            <span class="sys-card-value text-accent">AVAILABLE FOR HIRE</span>
+            <div class="sys-card-line"></div>
+          </div>
+          <div class="sys-card" data-delay="300">
+            <div class="sys-card-header">
+              <span class="sys-card-dot"></span>
+              <span class="sys-card-label">Location</span>
+            </div>
+            <span class="sys-card-value">KARACHI, PAKISTAN</span>
+            <div class="sys-card-line"></div>
+          </div>
+          <div class="sys-card" data-delay="360">
+            <div class="sys-card-header">
+              <span class="sys-card-dot"></span>
+              <span class="sys-card-label">Current Mission</span>
+            </div>
+            <span class="sys-card-value">BUILDING MODERN WEB APPS</span>
+            <div class="sys-card-line"></div>
+          </div>
+        </div>
+
+        <!-- ===== Right Side: Developer Logs (Frame 1) ===== -->
+        <div id="dev-logs-1" class="pointer-events-none absolute right-6 bottom-28 z-20 flex flex-col gap-2 md:right-12 md:bottom-32" style="opacity:0;transition:opacity 300ms ease-out">
+          <div class="dev-log" data-delay="0">
+            <span class="dev-log-num">Log 01</span>
+            <span class="dev-log-text">Frontend Systems Online</span>
+          </div>
+          <div class="dev-log" data-delay="80">
+            <span class="dev-log-num">Log 02</span>
+            <span class="dev-log-text">Laravel Backend Initialized</span>
+          </div>
+          <div class="dev-log" data-delay="160">
+            <span class="dev-log-num">Log 03</span>
+            <span class="dev-log-text">Database Connected</span>
+          </div>
+          <div class="dev-log" data-delay="240">
+            <span class="dev-log-num">Log 04</span>
+            <span class="dev-log-text">REST API Active</span>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="pointer-events-none absolute inset-x-0 bottom-0 z-10">
+          <div class="mx-6 mb-3 h-px bg-white/10 md:mx-10">
+            <div id="hero-progress" class="h-full origin-left bg-accent" style="transform:scaleX(0);transition:transform 80ms linear"></div>
+          </div>
+          <div class="mx-6 flex items-center justify-between pb-4 font-mono text-[10px] uppercase tracking-[0.28em] text-zinc-500 md:mx-10">
+            <span>FRAME 001</span>
+            <span>J.A.R.V.I.S. // DEVELOPER PROFILE</span>
+            <span>Scroll &darr;</span>
+          </div>
+        </div>
+
+        <!-- Loading Screen -->
+        <div id="hero-loading" class="absolute inset-0 z-30 flex flex-col items-center justify-center gap-5 bg-background px-6">
+          <span class="eyebrow-badge inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-3 py-1.5 font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-accent backdrop-blur-md" style="box-shadow:inset 0 1px 0 rgba(255,255,255,0.06), 0 0 24px -8px rgba(212,162,47,0.25)">
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(212,162,47,0.85)]"></span>
+            J.A.R.V.I.S. // INITIALIZING
+          </span>
+          <div class="h-px w-60 bg-white/10 md:w-80">
+            <div id="hero-load-bar" class="h-full bg-accent transition-[width] duration-150 ease-out" style="width:0%"></div>
+          </div>
+          <p id="hero-load-text" class="font-mono text-[11px] uppercase tracking-[0.28em] text-zinc-500">Loading Developer Profile &nbsp;&middot;&nbsp; 0%</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         FRAME 2 — DEVELOPER PROFILE / J.A.R.V.I.S. ACCESS
+         ============================================= -->
+    <section id="frame2" class="scroll-animation relative border-t border-white/5 bg-background">
+      <div class="sticky top-0 min-h-[100dvh] w-full overflow-hidden bg-background" style="height:100dvh;will-change:transform;transform:translateZ(0)">
+        <canvas id="cine-canvas" class="absolute inset-0 h-full w-full" style="will-change:contents;transform:translateZ(0)"></canvas>
+
+        <!-- Vignette -->
+        <div class="pointer-events-none absolute inset-0" style="background:radial-gradient(120% 80% at 50% 90%, transparent 30%, rgba(10,10,11,0.45) 70%, rgba(10,10,11,0.85) 100%)"></div>
+
+        <!-- HUD Corners -->
+        <div class="pointer-events-none absolute left-6 top-24 text-accent md:left-10 md:top-28"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M 2 26 L 2 2 L 26 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg></div>
+        <div class="pointer-events-none absolute right-6 top-24 text-accent md:right-10 md:top-28"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M 6 2 L 26 2 L 26 26" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg></div>
+        <div class="pointer-events-none absolute bottom-14 left-6 text-accent md:bottom-16 md:left-10"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M 2 6 L 2 26 L 26 26" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg></div>
+        <div class="pointer-events-none absolute bottom-14 right-6 text-accent md:bottom-16 md:right-10"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M 6 26 L 26 26 L 26 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg></div>
+
+        <!-- Top-left label -->
+        <div class="pointer-events-none absolute left-6 top-20 z-10 flex items-center gap-2 md:left-10 md:top-24">
+          <div class="h-px w-8 bg-accent/60"></div>
+          <span class="font-mono text-[10px] uppercase tracking-[0.32em] text-zinc-400">Classified // Developer Access</span>
+        </div>
+
+        <!-- Seq Readout -->
+        <div class="pointer-events-none absolute right-6 top-20 z-10 flex items-center gap-3 md:right-10 md:top-24">
+          <span id="cine-seq" class="font-mono text-[10px] uppercase tracking-[0.28em] text-accent">SEQ 001 / 169</span>
+          <span aria-hidden class="inline-block h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(212,162,47,0.85)]"></span>
+        </div>
+
+        <!-- ===== SCENE E: Technology System Modules ===== -->
+        <div id="tech-modules" class="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 z-20 flex justify-center px-6 md:px-12" style="opacity:0;transition:opacity 300ms ease-out">
+          <div class="tech-grid">
+
+            <!-- FRONTEND SYSTEM -->
+            <div class="system-module" data-delay="0">
+              <div class="sys-mod-header">
+                <div class="sys-mod-label-row">
+                  <span class="sys-mod-dot"></span>
+                  <span class="sys-mod-category">Frontend System</span>
+                </div>
+                <span class="sys-mod-status online">Status : Online</span>
+              </div>
+              <div class="sys-mod-divider"></div>
+              <div class="sys-mod-body">
+                <span class="sys-mod-item">HTML5</span>
+                <span class="sys-mod-item">CSS3</span>
+                <span class="sys-mod-item">Bootstrap</span>
+                <span class="sys-mod-item">JavaScript</span>
+                <span class="sys-mod-item">jQuery</span>
+              </div>
+              <div class="sys-mod-scan"></div>
+            </div>
+
+            <!-- BACKEND SYSTEM -->
+            <div class="system-module" data-delay="120">
+              <div class="sys-mod-header">
+                <div class="sys-mod-label-row">
+                  <span class="sys-mod-dot"></span>
+                  <span class="sys-mod-category">Backend System</span>
+                </div>
+                <span class="sys-mod-status online">Status : Active</span>
+              </div>
+              <div class="sys-mod-divider"></div>
+              <div class="sys-mod-body">
+                <span class="sys-mod-item">PHP</span>
+                <span class="sys-mod-item">Laravel</span>
+                <span class="sys-mod-item">MySQL</span>
+                <span class="sys-mod-item">REST API</span>
+              </div>
+              <div class="sys-mod-scan"></div>
+            </div>
+
+            <!-- APPLICATION DEVELOPMENT -->
+            <div class="system-module" data-delay="240">
+              <div class="sys-mod-header">
+                <div class="sys-mod-label-row">
+                  <span class="sys-mod-dot learning"></span>
+                  <span class="sys-mod-category">Application Dev</span>
+                </div>
+                <span class="sys-mod-status learning">Status : Learning &amp; Building</span>
+              </div>
+              <div class="sys-mod-divider"></div>
+              <div class="sys-mod-body">
+                <span class="sys-mod-item">Flutter</span>
+                <span class="sys-mod-item">Dart</span>
+              </div>
+              <div class="sys-mod-mastering">
+                <span class="sys-mod-mastering-dot"></span>
+                <span class="sys-mod-mastering-text">Currently Mastering</span>
+              </div>
+              <div class="sys-mod-scan"></div>
+            </div>
+
+            <!-- FRAMEWORK SYSTEM -->
+            <div class="system-module" data-delay="360">
+              <div class="sys-mod-header">
+                <div class="sys-mod-label-row">
+                  <span class="sys-mod-dot"></span>
+                  <span class="sys-mod-category">Framework System</span>
+                </div>
+                <span class="sys-mod-status ready">Status : Ready</span>
+              </div>
+              <div class="sys-mod-divider"></div>
+              <div class="sys-mod-body">
+                <span class="sys-mod-item">React</span>
+                <span class="sys-mod-item">Angular</span>
+                <span class="sys-mod-item">Tailwind CSS</span>
+              </div>
+              <div class="sys-mod-scan"></div>
+            </div>
+
+            <!-- ENGINEERING SYSTEM -->
+            <div class="system-module" data-delay="480">
+              <div class="sys-mod-header">
+                <div class="sys-mod-label-row">
+                  <span class="sys-mod-dot"></span>
+                  <span class="sys-mod-category">Engineering System</span>
+                </div>
+                <span class="sys-mod-status online">Status : Active</span>
+              </div>
+              <div class="sys-mod-divider"></div>
+              <div class="sys-mod-body">
+                <span class="sys-mod-item">C#</span>
+                <span class="sys-mod-item">.NET</span>
+                <span class="sys-mod-item">Git</span>
+              </div>
+              <div class="sys-mod-scan"></div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ===== SCENE F: Stark Archives (Projects) ===== -->
+        <div id="archives" class="pointer-events-none absolute left-6 top-[12%] z-20 flex flex-col gap-4 md:left-12 md:top-[10%]" style="opacity:0;transition:opacity 300ms ease-out">
+          <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-accent mb-1">
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(212,162,47,0.85)] mr-2"></span>
+            Stark Archives // Projects
+          </span>
+          <div class="archive-card" data-delay="0">
+            <div class="archive-card-top">
+              <span class="archive-card-name">Business Management System</span>
+              <span class="archive-card-status">DEPLOYED</span>
+            </div>
+            <div class="archive-card-mid">
+              <span class="archive-card-tech">Laravel / MySQL / REST API</span>
+              <span class="archive-card-year">2024</span>
+            </div>
+            <div class="archive-card-actions">
+              <a href="#" class="archive-btn">Launch</a>
+              <a href="#" class="archive-btn">Github</a>
+            </div>
+            <div class="archive-card-glow"></div>
+          </div>
+          <div class="archive-card" data-delay="100">
+            <div class="archive-card-top">
+              <span class="archive-card-name">E-Commerce Platform</span>
+              <span class="archive-card-status">ACTIVE</span>
+            </div>
+            <div class="archive-card-mid">
+              <span class="archive-card-tech">Angular / .NET / MySQL</span>
+              <span class="archive-card-year">2024</span>
+            </div>
+            <div class="archive-card-actions">
+              <a href="#" class="archive-btn">Launch</a>
+              <a href="#" class="archive-btn">Github</a>
+            </div>
+            <div class="archive-card-glow"></div>
+          </div>
+          <div class="archive-card" data-delay="200">
+            <div class="archive-card-top">
+              <span class="archive-card-name">Real-Time Dashboard</span>
+              <span class="archive-card-status">ACTIVE</span>
+            </div>
+            <div class="archive-card-mid">
+              <span class="archive-card-tech">React / Tailwind / REST API</span>
+              <span class="archive-card-year">2025</span>
+            </div>
+            <div class="archive-card-actions">
+              <a href="#" class="archive-btn">Launch</a>
+              <a href="#" class="archive-btn">Github</a>
+            </div>
+            <div class="archive-card-glow"></div>
+          </div>
+        </div>
+
+        <!-- ===== SCENE G: Achievement Console ===== -->
+        <div id="achievements" class="pointer-events-none absolute left-6 top-[12%] z-20 flex flex-col gap-2 md:left-12 md:top-[12%]" style="opacity:0;transition:opacity 300ms ease-out">
+          <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-accent mb-2">
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(212,162,47,0.85)] mr-2"></span>
+            Achievement Console
+          </span>
+          <div class="achieve-item" data-delay="0"><span class="achieve-check">&#10003;</span> 2+ Years Experience</div>
+          <div class="achieve-item" data-delay="80"><span class="achieve-check">&#10003;</span> Full Stack Development</div>
+          <div class="achieve-item" data-delay="160"><span class="achieve-check">&#10003;</span> Responsive UI Specialist</div>
+          <div class="achieve-item" data-delay="240"><span class="achieve-check">&#10003;</span> Backend Development</div>
+          <div class="achieve-item" data-delay="320"><span class="achieve-check">&#10003;</span> REST APIs</div>
+          <div class="achieve-item" data-delay="400"><span class="achieve-check">&#10003;</span> Database Design</div>
+          <div class="achieve-item" data-delay="480"><span class="achieve-check">&#10003;</span> Performance Optimization</div>
+          <div class="achieve-item" data-delay="560"><span class="achieve-check">&#10003;</span> AI Assisted Workflow</div>
+        </div>
+
+        <!-- ===== SCENE G2: Stats (right side) ===== -->
+        <div id="frame2-stats" class="pointer-events-none absolute right-6 top-[14%] z-20 flex flex-col gap-3 md:right-12 md:top-[12%]" style="opacity:0;transition:opacity 300ms ease-out">
+          <div class="sys-card" data-delay="0">
+            <div class="sys-card-header"><span class="sys-card-dot"></span><span class="sys-card-label">Experience</span></div>
+            <span class="sys-card-value">2+</span>
+            <div class="sys-card-line"></div>
+          </div>
+          <div class="sys-card" data-delay="80">
+            <div class="sys-card-header"><span class="sys-card-dot"></span><span class="sys-card-label">Technologies</span></div>
+            <span class="sys-card-value">15+</span>
+            <div class="sys-card-line"></div>
+          </div>
+          <div class="sys-card" data-delay="160">
+            <div class="sys-card-header"><span class="sys-card-dot"></span><span class="sys-card-label">Status</span></div>
+            <span class="sys-card-value text-accent">AVAILABLE</span>
+            <div class="sys-card-line"></div>
+          </div>
+          <div class="sys-card" data-delay="240">
+            <div class="sys-card-header"><span class="sys-card-dot"></span><span class="sys-card-label">Learning</span></div>
+            <span class="sys-card-value">NEVER STOPS</span>
+            <div class="sys-card-line"></div>
+          </div>
+        </div>
+
+        <!-- ===== SCENE H: Final — "I Am Taha Sultan" + Recruiter CTA ===== -->
+        <div id="final-scene" class="pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center" style="opacity:0;transition:opacity 400ms ease-out">
+          <!-- Arc Reactor Glow -->
+          <div class="arc-reactor-container mb-8">
+            <div class="arc-reactor">
+              <div class="arc-reactor-ring"></div>
+              <div class="arc-reactor-core"></div>
+              <div class="arc-reactor-glow"></div>
+            </div>
+          </div>
+          <h2 class="font-sans text-5xl md:text-7xl lg:text-8xl font-semibold leading-[0.92] tracking-tighter text-foreground text-center">
+            I Am<br /><span class="text-accent">Taha Sultan.</span>
+          </h2>
+          <p class="mt-4 font-mono text-[13px] uppercase tracking-[0.28em] text-zinc-400">Full Stack Developer.</p>
+          <p class="mt-2 max-w-[38ch] text-center font-sans text-sm leading-relaxed text-zinc-500">
+            Let's build something extraordinary.
+          </p>
+          <div class="flex items-center gap-3 mt-8 pointer-events-auto">
+            <a href="#" class="group inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-6 py-3 font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-accent backdrop-blur-md transition-all duration-300 hover:bg-accent/20 hover:shadow-[0_0_40px_rgba(212,162,47,0.25)] active:translate-y-[1px]">
+              Contact Me
+              <svg class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" width="14" height="14" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="25" stroke-linecap="round" stroke-linejoin="round"><line x1="72" y1="184" x2="184" y2="72"></line><polyline points="100,72 184,72 184,156"></polyline></svg>
+            </a>
+            <a href="#" class="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.05] px-6 py-3 font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-foreground backdrop-blur-md transition-all duration-200 hover:bg-white/[0.1] active:translate-y-[1px]">
+              Download Resume
+            </a>
+          </div>
+        </div>
+
+        <!-- ===== Right Side: Developer Logs (Frame 2) ===== -->
+        <div id="dev-logs-2" class="pointer-events-none absolute right-6 bottom-28 z-20 flex flex-col gap-2 md:right-12 md:bottom-32" style="opacity:0;transition:opacity 300ms ease-out">
+          <div class="dev-log" data-delay="0">
+            <span class="dev-log-num">Log 05</span>
+            <span class="dev-log-text">Recruitment Status: <span class="text-accent">AVAILABLE</span></span>
+          </div>
+          <div class="dev-log" data-delay="80">
+            <span class="dev-log-num">Log 06</span>
+            <span class="dev-log-text">Profile Verified</span>
+          </div>
+          <div class="dev-log" data-delay="160">
+            <span class="dev-log-num">Log 07</span>
+            <span class="dev-log-text">All Systems Nominal</span>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="pointer-events-none absolute inset-x-0 bottom-0 z-10">
+          <div class="mx-6 mb-3 h-px bg-white/10 md:mx-10">
+            <div id="cine-progress" class="h-full origin-left bg-accent" style="transform:scaleX(0);transition:transform 80ms linear"></div>
+          </div>
+          <div class="mx-6 flex items-center justify-between pb-4 font-mono text-[10px] uppercase tracking-[0.28em] text-zinc-500 md:mx-10">
+            <span>FRAME 002</span>
+            <span>J.A.R.V.I.S. // FULL ACCESS</span>
+            <span>Scroll &darr;</span>
+          </div>
+        </div>
+
+        <!-- Loading Screen -->
+        <div id="cine-loading" class="absolute inset-0 z-30 flex flex-col items-center justify-center gap-5 bg-background px-6">
+          <span class="eyebrow-badge inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-3 py-1.5 font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-accent backdrop-blur-md" style="box-shadow:inset 0 1px 0 rgba(255,255,255,0.06), 0 0 24px -8px rgba(212,162,47,0.25)">
+            <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(212,162,47,0.85)]"></span>
+            J.A.R.V.I.S. // LOADING PROFILE
+          </span>
+          <div class="h-px w-60 bg-white/10 md:w-80">
+            <div id="cine-load-bar" class="h-full bg-accent transition-[width] duration-150 ease-out" style="width:0%"></div>
+          </div>
+          <p id="cine-load-text" class="font-mono text-[11px] uppercase tracking-[0.28em] text-zinc-500">Accessing Profile &nbsp;&middot;&nbsp; 0%</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="border-t border-white/5 bg-background px-6 py-14 md:px-10 md:py-16">
+    <div class="mx-auto flex max-w-[1400px] flex-col gap-10">
+      <div class="flex flex-col justify-between gap-8 md:flex-row md:items-start">
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-2.5 font-mono text-[11px] font-semibold uppercase tracking-[0.32em] text-foreground">
+            <span aria-hidden class="inline-block h-2 w-2 rounded-full bg-accent shadow-[0_0_12px_rgba(212,162,47,0.9)]"></span>
+            Taha / Sultan
+          </div>
+          <p class="max-w-[38ch] font-sans text-sm leading-relaxed text-zinc-400">
+            Full Stack Web Developer &mdash; Karachi, Pakistan.
+            Building modern digital experiences with clean code.
+          </p>
+        </div>
+        <nav class="grid grid-cols-2 gap-x-10 gap-y-3 md:grid-cols-3">
+          <a href="https://github.com/tahakhan1212" class="group flex flex-col gap-1"><span class="font-sans text-[13px] font-medium text-foreground transition-colors group-hover:text-accent">Profile</span><span class="font-mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Developer Access</span></a>
+          <a href="https://tahakhan1212.github.io/new-projects/" class="group flex flex-col gap-1"><span class="font-sans text-[13px] font-medium text-foreground transition-colors group-hover:text-accent">Projects</span><span class="font-mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Stark Archives</span></a>
+          <a href="https://www.linkedin.com/in/taha-khan-7345473aa/" class="group flex flex-col gap-1"><span class="font-sans text-[13px] font-medium text-foreground transition-colors group-hover:text-accent">Contact</span><span class="font-mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Open Channel</span></a>
+          <a href="https://tahakhan1212.github.io/portfolio/" class="group flex flex-col gap-1"><span class="font-sans text-[13px] font-medium text-foreground transition-colors group-hover:text-accent">Resume</span><span class="font-mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Download</span></a>
+          <a href="https://forms.visme.co/formsPlayer/1jz4k3kp-login-to-source-code" class="group flex flex-col gap-1"><span class="font-sans text-[13px] font-medium text-foreground transition-colors group-hover:text-accent">GitHub</span><span class="font-mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Source Code</span></a>
+          <a href="https://www.linkedin.com/in/taha-khan-7345473aa/" class="group flex flex-col gap-1"><span class="font-sans text-[13px] font-medium text-foreground transition-colors group-hover:text-accent">LinkedIn</span><span class="font-mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Connect</span></a>
+        </nav>
+      </div>
+      <div class="flex flex-col gap-2 border-t border-white/5 pt-6 font-mono text-[10px] uppercase tracking-[0.28em] text-zinc-500 md:flex-row md:items-center md:justify-between">
+        <span>Build 2026 &nbsp;&middot;&nbsp; Taha Sultan &nbsp;&middot;&nbsp; J.A.R.V.I.S. Online</span>
+        <span>Designed &amp; Built with Precision</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lenis@1.3.21/dist/lenis.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
